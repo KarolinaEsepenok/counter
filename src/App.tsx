@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import s from './App.module.css'
+import Counter from "./components/Counter";
+import {NewCounter} from "./components/NewCounter";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [stop, setStop]= useState<number>(5);
+    const [start, setStart]= useState<number>(0);
+    const [count, setCount] = useState<number>(start);
+    console.log(start)
+    const incCountHandler = () => {
+        setCount(count + 1)
+    }
+    const resetCountHandler = () => {
+        setCount(start)
+    }
+
+    return (
+        <div className={s.app}>
+            <NewCounter setStop={setStop} start={start} setStart={setStart}/>
+
+            <Counter incCountHandler={incCountHandler}
+                     resetCountHandler={resetCountHandler}
+                     count={count}
+                     start={start}
+                     stop={stop}
+            />
+        </div>
+
+    )
+
 }
 
 export default App;
+

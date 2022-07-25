@@ -1,19 +1,20 @@
-import React,{useState} from 'react';
-{/*
-type ButtonIncProps = {
-    name: string
-   callBack:()=>void
-}
-export const ButtonInc = (props: ButtonIncProps) => {
+import React from 'react';
 
-    const onClickHandler=(event:number)=>{
-        props.callBack()
-    }
+type ButtonProps = {
+    name: string
+    callBack: () => void
+    disBtn: boolean
+}
+export const Button = (props: ButtonProps) => {
+
+    //   const onClickHandler=()=>{
+    //     props.callBack()
+    //  }
 
     return (
-        <div>
-            <button onClick={props.callBack} >{props.name}</button>
-        </div>
+
+        <button onClick={props.callBack} disabled={props.disBtn}>{props.name}</button>
+
     );
 };
-*/}
+

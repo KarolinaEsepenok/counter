@@ -1,13 +1,12 @@
 .app {
-    display: flex;
-    flex-direction: row;
     margin-left: auto;
     margin-right: auto;
-
+    width: 10em;
     text-align: center;
     border: 2px solid black;
     margin-top: 100px;
-    padding: 20px
+    display: flex;
+    flex-direction: row;
 }
 
 .content {
