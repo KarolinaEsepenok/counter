@@ -1,37 +1,19 @@
-.app {
-    margin-left: auto;
-    margin-right: auto;
-    width: 10em;
-    text-align: center;
-    border: 2px solid black;
-    margin-top: 100px;
+
+.newCounter {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+
+}
+input{
+    width: 80%;
+}
+button{
+    margin-top: 20px;
+}
+.negative{
+
 }
 
-.content {
-    text-align: center;
-}
-
-h1 {
-    width: 100px;
-    height: 50px;
-    border: 2px solid black;
-    margin-left: auto;
-    margin-right: auto;
-}
-.numberDis {
-    color:red;
-}
-.number{
-    color: black;
-}
-button {
-    width: 48px;
-    margin: 10px;
-    margin-top: 0px;
-}
-buttonCont{
-    display: flex;
-    border: #282c34 1px solid;
-}

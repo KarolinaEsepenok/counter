@@ -16,10 +16,13 @@ function App() {
     const resetCountHandler = () => {
         setCount(start)
     }
-
     return (
         <div className={s.app}>
-            <NewCounter setStop={setStop} start={start} setStart={setStart}/>
+            <NewCounter setStop={setStop}
+                        start={start}
+                        setStart={setStart}
+
+            />
 
             <Counter incCountHandler={incCountHandler}
                      resetCountHandler={resetCountHandler}
