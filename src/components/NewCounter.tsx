@@ -1,29 +1,54 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent} from 'react';
 import s from "./NewCounter.module.css";
-type NewCounterProps={
-    setStop:   (stop:number)=>void
-    setStart:(start:number)=>void
-    start: number
-}
 
-export const NewCounter = (props:NewCounterProps) => {
-    const [start, setStart] = useState<number>(props.start)
-const inputOnClickHandler = (e:ChangeEvent<HTMLInputElement>) => {
-    setStart(Number(e.currentTarget.value))
+type NewCounterProps={
+   // setStop:   (stop:number)=>void
+  //  setStart:(start:number)=>void
+  //  start: number
+    start:number
+    stop: number
+   // setCount:   (stop:number)=>void
+    startButtHandler:(e: ChangeEvent<HTMLInputElement>)=>void
+    stopButtHandler:(e: ChangeEvent<HTMLInputElement>)=>void
+    onClickButton:()=>void
+
 }
-const onClickButton = () => {
-    props.setStart(start)
-}
+export const NewCounter = (props:NewCounterProps) =>{
+
+  //  const inputOnChangeStartHandler = (e:ChangeEvent<HTMLInputElement>) => {
+  //      props.setStart(Number(e.currentTarget.value))
+  //  }
+ //   const inputOnChangeStopHandler = (e:ChangeEvent<HTMLInputElement>) => {
+  //      props.setStop(Number(e.currentTarget.value))
+  //  }
+
+   // const onClickButton = () => {
+  //      props.setStart(props.start)
+  //  }
+  //  const incCountHandler = () => {
+  //      props.setCount(props.count + 1)
+   // }
+  //  const resetCountHandler = () => {
+   //     props.setCount(props.start)
+   // }
+
     return (
         <div className={s.newCounter}>
-
+            <span>start value:</span>
             <input
-                value={start}
-                type="number" onChange={inputOnClickHandler} />
-
-            <input type="number"/>
-            <button onClick={onClickButton}>Ok</button>
+                type="number" className={props.start === props.stop ? s.numberDis : '' + s.number}
+                value={props.start}
+               // onChange={inputOnChangeStartHandler}
+                onChange={props.startButtHandler}
+            />
+            <span>max value:</span>
+            <input  type="number"
+                    value={props.stop}
+                  //  onChange={inputOnChangeStopHandler}
+                onChange={props.stopButtHandler}
+            />
+            <button onClick={props.onClickButton}>Ok</button>
         </div>
     );
-};
+}
 

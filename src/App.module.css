@@ -4,21 +4,26 @@
     margin-top: 100px;
     justify-content: space-around;
     flex-wrap: wrap;
+    font-family: "Lucida Bright";
+
 }
 .content {
     text-align: center;
     flex-direction: row;
     text-align: center;
     border: 2px solid black;
-
+    width: 300px;
+    padding: 15px;
+    border-radius: 15px;
 }
 
 h1 {
-    width: 100px;
+    width: 90%;
     height: 50px;
     border: 2px solid black;
     margin-left: auto;
     margin-right: auto;
+    font-size: 20px;
 }
 .numberDis {
     color:red;
