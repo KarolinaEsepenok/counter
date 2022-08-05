@@ -22,6 +22,7 @@ button{
 .numberDis {
     color:black;
     background-color: tomato;
+    border: 1px solid tomato;
 }
 .number{
     color: black;
