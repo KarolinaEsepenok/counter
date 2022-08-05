@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, useEffect, useState} from 'react';
 import './App.css';
 import s from './App.module.css'
 import Counter from "./components/Counter";
@@ -7,7 +7,7 @@ import {NewCounter} from "./components/NewCounter";
 
 
 function App() {
-    const [stop, setStop] = useState<number>(5);
+    const [stop, setStop] = useState<number>(0);
     const [start, setStart] = useState<number>(0);
     const [count, setCount] = useState<number>(0);
     const [message, setMessage] = useState<string>('');
@@ -15,10 +15,21 @@ function App() {
     const onClickButton = () => {
         setCount(start)
         setMessage('')
-        localStorage.setItem('start',JSON.stringify(start))
-        localStorage.setItem('stop',JSON.stringify(stop))
-
+     //   localStorage.setItem('start',JSON.stringify(start))
+     //   localStorage.setItem('stop',JSON.stringify(stop))
     }
+    useEffect(()=>{
+        localStorage.setItem('start',JSON.stringify(start))
+
+    },[start])
+    useEffect(()=>{
+        localStorage.setItem('stop',JSON.stringify(stop))
+    },[stop])
+
+    useEffect(()=>{
+        localStorage.getItem('count')
+    },[])
+
     const startButtHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const value = Number(e.currentTarget.value)
         setStart(value)

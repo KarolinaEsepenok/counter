@@ -1,5 +1,6 @@
 import React, {ChangeEvent} from 'react';
 import s from "./NewCounter.module.css";
+import {Button} from "./Button";
 
 type NewCounterProps={
    // setStop:   (stop:number)=>void
@@ -12,42 +13,25 @@ type NewCounterProps={
     stopButtHandler:(e: ChangeEvent<HTMLInputElement>)=>void
     onClickButton:()=>void
 
+
 }
 export const NewCounter = (props:NewCounterProps) =>{
-
-  //  const inputOnChangeStartHandler = (e:ChangeEvent<HTMLInputElement>) => {
-  //      props.setStart(Number(e.currentTarget.value))
-  //  }
- //   const inputOnChangeStopHandler = (e:ChangeEvent<HTMLInputElement>) => {
-  //      props.setStop(Number(e.currentTarget.value))
-  //  }
-
-   // const onClickButton = () => {
-  //      props.setStart(props.start)
-  //  }
-  //  const incCountHandler = () => {
-  //      props.setCount(props.count + 1)
-   // }
-  //  const resetCountHandler = () => {
-   //     props.setCount(props.start)
-   // }
 
     return (
         <div className={s.newCounter}>
             <span>start value:</span>
             <input
-                type="number" className={props.start === props.stop ? s.numberDis : '' + s.number}
+                type="number" className={props.start < 0 ? s.numberDis : '' + s.number}
                 value={props.start}
-               // onChange={inputOnChangeStartHandler}
                 onChange={props.startButtHandler}
             />
             <span>max value:</span>
-            <input  type="number"
+            <input  type="number" className={props.stop <0 || props.stop === props.start-1  ? s.numberDis : '' + s.number}
                     value={props.stop}
-                  //  onChange={inputOnChangeStopHandler}
                 onChange={props.stopButtHandler}
             />
-            <button onClick={props.onClickButton}>Ok</button>
+            <Button name={'Set'} callBack={props.onClickButton} disBtn={props.start === props.stop}/>
+
         </div>
     );
 }

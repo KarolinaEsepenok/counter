@@ -20,7 +20,8 @@ button{
 
 }
 .numberDis {
-    color:red;
+    color:black;
+    background-color: tomato;
 }
 .number{
     color: black;
@@ -34,4 +35,6 @@ buttonCont{
     display: flex;
     border: #282c34 1px solid;
 }
-
+.buttonDis{
+    color: black;
+}
