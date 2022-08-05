@@ -5,18 +5,24 @@ import Counter from "./components/Counter";
 import {NewCounter} from "./components/NewCounter";
 
 
+
 function App() {
     const [stop, setStop] = useState<number>(5);
     const [start, setStart] = useState<number>(0);
     const [count, setCount] = useState<number>(0);
     const [message, setMessage] = useState<string>('');
+
     const onClickButton = () => {
         setCount(start)
         setMessage('')
+        localStorage.setItem('start',JSON.stringify(start))
+        localStorage.setItem('stop',JSON.stringify(stop))
+
     }
     const startButtHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const value = Number(e.currentTarget.value)
         setStart(value)
+
         if (value < 0 || value >= stop) {
             setMessage('Incorrect value!')
         } else setMessage('Enter values and press set')
@@ -24,12 +30,14 @@ function App() {
     const stopButtHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const value = Number(e.currentTarget.value)
         setStop(value)
+
         if (value < 0 || value >= stop) {
             setMessage('Incorrect value!')
         } else setMessage('Enter values and press set')
     }
     const incCountHandler = () => {
         setCount(count + 1)
+        localStorage.setItem('count',JSON.stringify(count+1))
     }
     const resetCountHandler = () => {
         setCount(start)
