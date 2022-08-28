@@ -19,7 +19,7 @@ function App() {
      //   localStorage.setItem('stop',JSON.stringify(stop))
     }
     useEffect(()=>{
-        localStorage.setItem('start',JSON.stringify(start))
+        localStorage.setItem('start',JSON.stringify(setStart))
 
     },[start])
     useEffect(()=>{
