@@ -77,7 +77,7 @@ export function AppWithRedux() {
                     <NewCounter
                         onClickButton={onClickButton}
                        // startButtHandler={startButtHandler}
-                        stopButtHandler={stopButtHandler}
+                      //  stopButtHandler={stopButtHandler}
                         start={start}
                         stop={stop}
                     />
