@@ -76,7 +76,7 @@ export function AppWithRedux() {
                 <div className={s.app}>
                     <NewCounter
                         onClickButton={onClickButton}
-                        startButtHandler={startButtHandler}
+                       // startButtHandler={startButtHandler}
                         stopButtHandler={stopButtHandler}
                         start={start}
                         stop={stop}
