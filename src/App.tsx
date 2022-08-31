@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useEffect, useState} from 'react';
+{/*import React, {ChangeEvent, useEffect, useState} from 'react';
 import './App.css';
 import s from './App.module.css'
 import Counter from "./components/Counter";
@@ -18,17 +18,17 @@ function App() {
      //   localStorage.setItem('start',JSON.stringify(start))
      //   localStorage.setItem('stop',JSON.stringify(stop))
     }
-    useEffect(()=>{
-        localStorage.setItem('start',JSON.stringify(setStart))
+   // useEffect(()=>{
+    //    localStorage.setItem('start',JSON.stringify(setStart))
 
-    },[start])
-    useEffect(()=>{
-        localStorage.setItem('stop',JSON.stringify(stop))
-    },[stop])
+   // },[start])
+   //useEffect(()=>{
+   //     localStorage.setItem('stop',JSON.stringify(stop))
+   // },[stop])
 
-    useEffect(()=>{
-        localStorage.getItem('count')
-    },[])
+  //  useEffect(()=>{
+   //     localStorage.getItem('count')
+  //  },[])
 
     const startButtHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const value = Number(e.currentTarget.value)
@@ -79,3 +79,4 @@ function App() {
 
 export default App;
 
+*/}

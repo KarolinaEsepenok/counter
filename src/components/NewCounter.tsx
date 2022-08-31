@@ -9,8 +9,8 @@ type NewCounterProps={
     start:number
     stop: number
    // setCount:   (stop:number)=>void
-    startButtHandler:(e: ChangeEvent<HTMLInputElement>)=>void
-    stopButtHandler:(e: ChangeEvent<HTMLInputElement>)=>void
+   // startButtHandler:(e: ChangeEvent<HTMLInputElement>)=>void
+   // stopButtHandler:(e: ChangeEvent<HTMLInputElement>)=>void
     onClickButton:()=>void
 
 
@@ -23,12 +23,12 @@ export const NewCounter = (props:NewCounterProps) =>{
             <input
                 type="number" className={props.start < 0 ? s.numberDis : '' + s.number}
                 value={props.start}
-                onChange={props.startButtHandler}
+               // onChange={props.startButtHandler}
             />
             <span>max value:</span>
             <input  type="number" className={props.stop <0 || props.stop === props.start-1  ? s.numberDis : '' + s.number}
                     value={props.stop}
-                onChange={props.stopButtHandler}
+               // onChange={props.stopButtHandler}
             />
             <Button name={'Set'} callBack={props.onClickButton} disBtn={props.start === props.stop}/>
 
