@@ -16,12 +16,7 @@ type CounterType = {
     message: string
 }
 const Counter = (props: CounterType) => {
-  //  const incCountHandler = () => {
-     //   props.setCount(props.count + 1)
-   // }
-  //  const resetCountHandler = () => {
-  //      props.setCount(props.start)
-   // }
+
     return (
         <div className={s.content}>
             <h1 className={props.message === 'Incorrect values!' ? s.numberDis : '' + s.number}>{props.message ? props.message : props.count}</h1>

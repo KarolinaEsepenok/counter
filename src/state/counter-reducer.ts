@@ -1,35 +1,11 @@
 
 
-//type InitialState = {
-  //  startValue: number
-       // ...
-//}
 
 const initialState = {
     startValue: 0,
     maxValue: 0,
     myValue: 0,
     message: ''
-}
-type initialState2 = typeof initialState
-export type ActionType = StartButtHandlerAT2 | MaxButtHandlerAT | CounterAT | MessageAT
-export const counterReducer = (state: initialState2, action: ActionType):initialState2 => {
-    switch (action.type) {
-        case 'START-COUNTER': {
-            return {...state, startValue: action.value};
-        }
-        case 'MAX-COUNTER': {
-            return {...state, maxValue: action.value};
-        }
-        case 'COUNT-COUNTER':
-            return {...state, myValue: action.value};
-        case 'MESSAGE':
-            return {...state, message: action.message};
-
-        default:
-            throw new Error("I don't understand this action type")
-    }
-
 }
 export type StartButtHandlerAT2 = {
     type: 'START-COUNTER'
@@ -47,6 +23,27 @@ export type MessageAT = {
     type: 'MESSAGE'
     message:string
 }
+export type initialState2 = typeof initialState
+export type ActionType = StartButtHandlerAT2 | MaxButtHandlerAT | CounterAT | MessageAT
+export const counterReducer = (state: initialState2, action: ActionType):initialState2 => {
+    switch (action.type) {
+        case 'START-COUNTER': {
+            return {...state, startValue: action.value};
+        }
+        case 'MAX-COUNTER': {
+            return {...state, maxValue: action.value};
+        }
+        case 'COUNT-COUNTER':
+            return {...state, myValue: action.value+1};
+        case 'MESSAGE':
+            return {...state, message: action.message};
+
+        default:
+            throw new Error("I don't understand this action type")
+    }
+
+}
+
 export const startButtHandlerAC = (value:number): StartButtHandlerAT2=>{
     return { type: 'START-COUNTER', value}
 }

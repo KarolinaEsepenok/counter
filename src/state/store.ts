@@ -2,10 +2,7 @@ import {combineReducers, createStore} from "redux";
 import {counterReducer} from "./counter-reducer";
 
 const rootReducer = combineReducers({
-
     count: counterReducer,
-
-
 })
 // непосредственно создаём store
 export const store = createStore(rootReducer);
