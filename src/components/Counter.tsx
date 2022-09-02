@@ -10,7 +10,7 @@ type CounterType = {
    // resetCountHandler: () => void
    start: number
     stop: number
-    setCount:   (stop:number)=>void
+  //  setCount:   (stop:number)=>void
     incCountHandler:()=>void
     resetCountHandler:()=>void
     message: string
