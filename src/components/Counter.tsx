@@ -8,6 +8,7 @@ type CounterType = {
     count: number
   //  incCountHandler: () => void
    // resetCountHandler: () => void
+
    start: number
     stop: number
   //  setCount:   (stop:number)=>void
