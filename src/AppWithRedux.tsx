@@ -7,53 +7,24 @@ import {counterAC, initialState, maxButtHandlerAC, messageAC, startButtHandlerAC
 import {useDispatch, useSelector} from "react-redux";
 import {CountRootStateType} from "./state/store";
 
-
-
 export function AppWithRedux() {
     const counter = useSelector<CountRootStateType, initialState>(state => state.counter);
     const dispatch = useDispatch();
     const onClickButton = () => {}
-        // setCount(start)
-        //  setMessage('')
-        //   localStorage.setItem('start',JSON.stringify(start))
-        //   localStorage.setItem('stop',JSON.stringify(stop))
-    // useEffect(()=>{
-    //    localStorage.setItem('start',JSON.stringify(setStart))
 
-    // },[start])
-    //useEffect(()=>{
-    //     localStorage.setItem('stop',JSON.stringify(stop))
-    // },[stop])
-
-    //  useEffect(()=>{
-    //     localStorage.getItem('count')
-    //  },[])
     function startButtHandler (value: number) {
         const action = startButtHandlerAC(value);
         dispatch(action)
-        //  const value = Number(e.currentTarget.value)
-        //  setStart(value)
-
-        //  if (value < 0 || value >= stop) {
-        //      setMessage('Incorrect value!')
-        //  } else setMessage('Enter values and press set')
     }
     function stopButtHandler  (value: number) {
         const action = maxButtHandlerAC(value);
         dispatch(action)
-
-        //  const value = Number(e.currentTarget.value)
-        //   setStop(value)
-
-        //  if (value < 0 || value >= stop) {
-        //      setMessage('Incorrect value!')
-        //  } else setMessage('Enter values and press set')
     }
-    function count  (value: number)  {
+    function countHandler  (value: number)  {
         const action = counterAC(value);
         dispatch(action)
     }
-    function message (message: string) {
+    function messageHandler (message: string) {
         const action = messageAC(message);
         dispatch(action)
     }
@@ -67,13 +38,15 @@ export function AppWithRedux() {
 
     return (
         <div className={s.app}>
-            <NewCounter
+            <NewCounter startButtHandler={startButtHandler} stopButtHandler={stopButtHandler} countHandler={countHandler} messageHandler={messageHandler}
+               start={props.start}   stop={props.stop} onClickButton={onClickButton}
+            />
+            <Counter startButtHandler={startButtHandler} stopButtHandler={stopButtHandler} countHandler={countHandler} messageHandler={messageHandler} start={props.start}
+                     stop={props.stop} count={props.count} message={props.message}
+
 
             />
-            <Counter stop={}
-
-
-            />
+            <div></div>
         </div>
     )
 }
