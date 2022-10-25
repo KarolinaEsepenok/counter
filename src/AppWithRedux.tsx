@@ -3,18 +3,14 @@ import React, { useState} from 'react';
 import s from './App.module.css'
 import Counter from "./components/Counter";
 import {NewCounter} from "./components/NewCounter";
-import {counterAC, initialState2, maxButtHandlerAC, messageAC, startButtHandlerAC} from "./state/counter-reducer";
+import {counterAC, initialState, maxButtHandlerAC, messageAC, startButtHandlerAC} from "./state/counter-reducer";
 import {useDispatch, useSelector} from "react-redux";
 import {CountRootStateType} from "./state/store";
 
 
 
 export function AppWithRedux() {
-    // const [stop, setStop] = useState<number>(0);
-    // const [start, setStart] = useState<number>(0);
-    // const [count, setCount] = useState<number>(0);
-//    const [message, setMessage] = useState<string>('');
-    const counter = useSelector<CountRootStateType, initialState2>(state => state.count);
+    const counter = useSelector<CountRootStateType, initialState>(state => state.counter);
     const dispatch = useDispatch();
     const onClickButton = () => {}
         // setCount(start)
@@ -32,7 +28,7 @@ export function AppWithRedux() {
     //  useEffect(()=>{
     //     localStorage.getItem('count')
     //  },[])
-    const startButtHandler = (value: number) => {
+    function startButtHandler (value: number) {
         const action = startButtHandlerAC(value);
         dispatch(action)
         //  const value = Number(e.currentTarget.value)
@@ -42,7 +38,7 @@ export function AppWithRedux() {
         //      setMessage('Incorrect value!')
         //  } else setMessage('Enter values and press set')
     }
-    const stopButtHandler = (value: number) => {
+    function stopButtHandler  (value: number) {
         const action = maxButtHandlerAC(value);
         dispatch(action)
 
@@ -53,11 +49,11 @@ export function AppWithRedux() {
         //      setMessage('Incorrect value!')
         //  } else setMessage('Enter values and press set')
     }
-    const count = (value: number) => {
+    function count  (value: number)  {
         const action = counterAC(value);
         dispatch(action)
     }
-    const message = (message: string) => {
+    function message (message: string) {
         const action = messageAC(message);
         dispatch(action)
     }
@@ -72,20 +68,9 @@ export function AppWithRedux() {
     return (
         <div className={s.app}>
             <NewCounter
-                onClickButton={onClickButton}
-                startButtHandler={startButtHandler}
-                stopButtHandler={stopButtHandler}
-                // start={start}
-                //  stop={stop}
+
             />
-            <Counter
-                //setCount={setCount}
-                counter={count}
-                //  start={start}
-                //   stop={stop}
-                message={message}
-                ///  incCountHandler={incCountHandler}
-                // resetCountHandler={resetCountHandler}
+            <Counter stop={}
 
 
             />

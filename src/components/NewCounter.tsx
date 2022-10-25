@@ -12,11 +12,8 @@ type NewCounterProps = {
     // startButtHandler:(e: ChangeEvent<HTMLInputElement>)=>void
     // stopButtHandler:(e: ChangeEvent<HTMLInputElement>)=>void
     onClickButton: () => void
-
-
 }
 export const NewCounter = (props: NewCounterProps) => {
-
     return (
         <div className={s.newCounter}>
             <span>start value:</span>

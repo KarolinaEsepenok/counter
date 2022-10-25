@@ -1,13 +1,11 @@
-
-
-
-const initialState = {
+import React from "react";
+const CounterStateType = {
     startValue: 0,
     maxValue: 0,
     myValue: 0,
     message: ''
 }
-export type StartButtHandlerAT2 = {
+export type StartButtHandlerAT = {
     type: 'START-COUNTER'
     value: number
 }
@@ -23,9 +21,9 @@ export type MessageAT = {
     type: 'MESSAGE'
     message:string
 }
-export type initialState2 = typeof initialState
-export type ActionType = StartButtHandlerAT2 | MaxButtHandlerAT | CounterAT | MessageAT
-export const counterReducer = (state: initialState2, action: ActionType):initialState2 => {
+export type initialState = typeof CounterStateType
+export type ActionType = StartButtHandlerAT | MaxButtHandlerAT | CounterAT | MessageAT
+export const counterReducer = (state: initialState, action: ActionType):initialState => {
     switch (action.type) {
         case 'START-COUNTER': {
             return {...state, startValue: action.value};
@@ -44,7 +42,7 @@ export const counterReducer = (state: initialState2, action: ActionType):initial
 
 }
 
-export const startButtHandlerAC = (value:number): StartButtHandlerAT2=>{
+export const startButtHandlerAC = (value:number): StartButtHandlerAT=>{
     return { type: 'START-COUNTER', value}
 }
     export const maxButtHandlerAC = (value:number): MaxButtHandlerAT=>{

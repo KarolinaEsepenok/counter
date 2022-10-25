@@ -1,14 +1,8 @@
 import React from 'react';
 import s from "../App.module.css";
 import {Button} from "./Button";
-
-
-
 type CounterType = {
     count: number
-  //  incCountHandler: () => void
-   // resetCountHandler: () => void
-
    start: number
     stop: number
   //  setCount:   (stop:number)=>void
