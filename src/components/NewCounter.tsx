@@ -1,17 +1,14 @@
+
 import React, {ChangeEvent} from 'react';
 import s from "./NewCounter.module.css";
-import {Button} from "./Button";
+import {Input} from "./Input";
 
 type NewCounterProps = {
-    // setStop:   (stop:number)=>void
-    //  setStart:(start:number)=>void
-    //  start: number
-    start: number
-    stop: number
-    // setCount:   (stop:number)=>void
-    // startButtHandler:(e: ChangeEvent<HTMLInputElement>)=>void
-    // stopButtHandler:(e: ChangeEvent<HTMLInputElement>)=>void
     onClickButton: () => void
+    countHandler:(value:number)=>void
+    startButtHandler:(valueStart:number)=>void
+    stopButtHandler:(valueMax:number)=>void
+    messageHandler:(message:string)=>void
 }
 export const NewCounter = (props: NewCounterProps) => {
     return (
@@ -28,7 +25,7 @@ export const NewCounter = (props: NewCounterProps) => {
                    value={props.stop}
                 // onChange={props.stopButtHandler}
             />
-            <Button name={'Set'} callBack={props.onClickButton} disBtn={props.start === props.stop}/>
+            <Input name={'Set'} callBack={props.onClickButton} disBtn={props.start === props.stop}/>
 
         </div>
     );

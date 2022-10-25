@@ -1,4 +1,3 @@
-import React from "react";
 const CounterStateType = {
     startValue: 0,
     maxValue: 0,
@@ -7,11 +6,11 @@ const CounterStateType = {
 }
 export type StartButtHandlerAT = {
     type: 'START-COUNTER'
-    value: number
+    valueStart: number
 }
 export type MaxButtHandlerAT = {
     type: 'MAX-COUNTER'
-    value: number
+    valueMax: number
 }
 export type CounterAT = {
     type: 'COUNT-COUNTER'
@@ -26,10 +25,10 @@ export type ActionType = StartButtHandlerAT | MaxButtHandlerAT | CounterAT | Mes
 export const counterReducer = (state: initialState, action: ActionType):initialState => {
     switch (action.type) {
         case 'START-COUNTER': {
-            return {...state, startValue: action.value};
+            return {...state, startValue: action.valueStart};
         }
         case 'MAX-COUNTER': {
-            return {...state, maxValue: action.value};
+            return {...state, maxValue: action.valueMax};
         }
         case 'COUNT-COUNTER':
             return {...state, myValue: action.value+1};
@@ -42,11 +41,11 @@ export const counterReducer = (state: initialState, action: ActionType):initialS
 
 }
 
-export const startButtHandlerAC = (value:number): StartButtHandlerAT=>{
-    return { type: 'START-COUNTER', value}
+export const startButtHandlerAC = (valueStart:number): StartButtHandlerAT=>{
+    return { type: 'START-COUNTER', valueStart}
 }
-    export const maxButtHandlerAC = (value:number): MaxButtHandlerAT=>{
-        return { type: 'MAX-COUNTER', value}
+    export const maxButtHandlerAC = (valueMax:number): MaxButtHandlerAT=>{
+        return { type: 'MAX-COUNTER', valueMax}
     }
     export const counterAC = (value:number): CounterAT=>{
         return { type: 'COUNT-COUNTER', value}
