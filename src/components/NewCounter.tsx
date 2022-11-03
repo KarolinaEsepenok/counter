@@ -4,13 +4,9 @@ import s from "./NewCounter.module.css";
 import {Input} from "./Input";
 
 type NewCounterProps = {
-    onClickButton: () => void
-    countHandler:(value:number)=>void
-    startButtHandler:(valueStart:number)=>void
-    stopButtHandler:(valueMax:number)=>void
-    messageHandler:(message:string)=>void
+
 }
-export const NewCounter = (props: NewCounterProps) => {
+export const NewCounter = () => {
     return (
         <div className={s.newCounter}>
             <span>start value:</span>

@@ -1,13 +1,13 @@
 import {combineReducers, createStore} from "redux";
-import {counterReducer} from "./counter-reducer";
+import {valueReducer} from "./value-reducer";
 
 export const rootReducer = combineReducers({
-    counter: counterReducer,
+    value: valueReducer,
 })
 // непосредственно создаём store
 export const store = createStore(rootReducer);
 // определить автоматически тип всего объекта состояния
-export type CountRootStateType = ReturnType<typeof rootReducer>
+export type ValueRootStateType = ReturnType<typeof rootReducer>
 
 // а это, чтобы можно было в консоли браузера обращаться к store в любой момент
 // @ts-ignore

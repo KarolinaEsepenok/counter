@@ -1,21 +1,18 @@
-
-
 import React from 'react';
 import s from "../App.module.css";
 import {Input} from "./Input";
-type CounterType = {
-   count:number
-   start: number
-    stop: number
+import {useDispatch, useSelector} from "react-redux";
+import {ValueRootStateType} from "../state/store";
+import {initialState} from "../state/value-reducer";
 
-    countHandler:(value:number)=>void
-   startButtHandler:(value:number)=>void
-    stopButtHandler:(value:number)=>void
-    messageHandler:(message:string)=>void
 
-}
-const Counter = (props: CounterType) => {
-
+const Counter = () => {
+    const value = useSelector<ValueRootStateType, initialState>(state => state.value);
+    const dispatch=useDispatch()
+    const navigate = useNavigate()
+   const setBtnHandler=()=>{
+        return navigate('/set')
+   }
     return (
         <div className={s.content}>
             <h1 className={props.message === 'Incorrect values!' ? s.numberDis : '' + s.number}>{props.message ? props.message : props.count}</h1>
