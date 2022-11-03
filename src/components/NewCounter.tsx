@@ -2,27 +2,38 @@
 import React, {ChangeEvent} from 'react';
 import s from "./NewCounter.module.css";
 import {Input} from "./Input";
+import {useDispatch, useSelector} from "react-redux";
+import {ValueRootStateType} from "../state/store";
+import {IncMaxValueAC, IncStartValueAC, SetErrorAC, StateType} from "../state/value-reducer";
+import {useNavigate} from "react-router-dom";
 
-type NewCounterProps = {
 
-}
 export const NewCounter = () => {
+    const value = useSelector<ValueRootStateType, StateType>((state)=> state.value)
+    const navigate = useNavigate()
+    const counterSetBtnHandler=()=>{
+        navigate('/counter')
+    }
+    const dispatch = useDispatch()
+    const incMaxValueBtnHandler=(number:number)=>{
+        dispatch(IncMaxValueAC(number))
+    }
+    const incStartValueBtnHandler=(number:number)=>{
+        dispatch(IncStartValueAC(number))
+    }
+    const setErrorHandler=()=>{
+        dispatch(SetErrorAC())
+    }
+
     return (
         <div className={s.newCounter}>
-            <span>start value:</span>
-            <input
-                type="number" className={props.start < 0 ? s.numberDis : '' + s.number}
-                value={props.start}
-                // onChange={props.startButtHandler}
-            />
-            <span>max value:</span>
-            <input type="number"
-                   className={props.stop < 0 || props.stop === props.start - 1 ? s.numberDis : '' + s.number}
-                   value={props.stop}
-                // onChange={props.stopButtHandler}
-            />
-            <Input name={'Set'} callBack={props.onClickButton} disBtn={props.start === props.stop}/>
-
+           <div className={s.newCounterSett}>
+               <Input title={'MAX VALUE'} onChange={incMaxValueBtnHandler} error={value.error} value={value.maxValue} setError={setErrorHandler}/>
+               <Input title={'START VALUE'} onChange={incStartValueBtnHandler} error={value.error} value={value.startValue} setError={setErrorHandler}/>
+           </div>
+            <div className={s.newCounterButt}>
+                <button className={s.btnCounter} onClick={counterSetBtnHandler}>SET</button>
+            </div>
         </div>
     );
 }

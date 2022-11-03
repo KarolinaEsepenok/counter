@@ -1,13 +1,24 @@
-import React, {MouseEventHandler} from 'react';
+import React, {ChangeEvent} from 'react';
+import s from './Input.module.css'
 
-type ButtonProps = {
-    name: string
-    callBack: () => void
-    disBtn: boolean
+type InputProps = {
+    title: string
+    onChange: (e:number) => void
+    error: boolean
+    value:number
+    setError:()=>void
 }
-export const Input = (props: ButtonProps) => {
+export const Input = (props: InputProps) => {
+
+    const onChangeHandler=(e: ChangeEvent<HTMLInputElement>)=> {
+        props.onChange(parseInt(e.currentTarget.value))
+        props.setError()
+    }
+
     return (
-        <button onClick={props.callBack} disabled={props.disBtn}>{props.name}</button>
+      <div className={s.inputContainer}>
+          <input type={'number'} onChange={onChangeHandler} value={props.value}/>
+      </div>
 
     );
 };

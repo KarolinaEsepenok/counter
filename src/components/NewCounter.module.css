@@ -10,30 +10,3 @@
     border-radius: 15px;
 
 }
-input{
-    width: 80%;
-}
-button{
-    margin-top: 20px;
-}
-.negative{
-
-}
-.numberDis {
-    color:#61dafb;
-    background-color: tomato;
-    border: 1px solid tomato;
-}
-.number{
-    color:black;
-}
-button {
-    width: 48px;
-    margin: 10px;
-
-}
-buttonCont{
-    display: flex;
-    border: #282c34 1px solid;
-}
-

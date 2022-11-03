@@ -7,34 +7,3 @@
     font-family: "Lucida Bright";
 
 }
-.content {
-    text-align: center;
-    flex-direction: row;
-    text-align: center;
-    border: 2px solid black;
-    width: 300px;
-    padding: 15px;
-    border-radius: 15px;
-}
-
-h1 {
-    width: 90%;
-    height: 50px;
-    border: 2px solid black;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 20px;
-}
-
-.number{
-    color: black;
-}
-button {
-    width: 48px;
-    margin: 10px;
-    margin-top: 0px;
-}
-buttonCont{
-    display: flex;
-    border: #282c34 1px solid;
-}

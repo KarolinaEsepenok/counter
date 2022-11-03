@@ -1,8 +1,9 @@
-.content.numberDis {
-    color:red;
-    font-size: 50px;
-
+.content{
+    color: #282c34;
+}
+.counter{
+    background-color: #282c34;
 }
 .number{
-    color: black;
+    color: red;
 }

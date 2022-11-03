@@ -1,18 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-
 import reportWebVitals from './reportWebVitals';
-import {AppWithRedux} from "./AppWithRedux";
+import {App} from "./App";
 import {Provider} from "react-redux";
 import {store} from "./state/store";
 
-export const root = ReactDOM.createRoot(
+ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <Provider store={store}>
-    <AppWithRedux />
+    <App />
   </Provider>
 );
 

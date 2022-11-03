@@ -20,7 +20,7 @@ export type IncValueAT = {
     type: 'INC-VALUE'
 
 }
-export type setErrorAT = {
+export type SetErrorAT = {
     type: 'SET-ERROR'
 }
 export type ResValueAT = {
@@ -32,7 +32,7 @@ const initialValue:StateType = {
     myValue: 0,
     error: false
 }
-export type ActionType = IncMaxValueAT |IncStartValueAT | IncValueAT | setErrorAT |ResValueAT
+export type ActionType = IncMaxValueAT |IncStartValueAT | IncValueAT | SetErrorAT |ResValueAT
 export const valueReducer = (state: StateType = initialValue, action: ActionType):StateType => {
     switch (action.type) {
         case 'INC-MAX-VALUE': {
@@ -48,16 +48,19 @@ export const valueReducer = (state: StateType = initialValue, action: ActionType
                 return {...state, myValue:state.myValue +1}
             }
         }
-        case 'SET-ERROR':
-            return {...state, message: action.message};
+        case 'SET-ERROR':{
+            if(state.startValue > state.maxValue || (state.startValue | state.maxValue)< 0 || state.myValue >= state.maxValue){
+                return {...state, error:true}
+            }else {
+                return {...state, error:false}
+            }
+        };
         case 'RES-VALUE':
-            return {...state, message: action.message};
+            return {...state, error:false, myValue:state.startValue};
         default:
             throw new Error("I don't understand this action type")
     }
-
 }
-
 export const IncMaxValueAC = (value:number): IncMaxValueAT=>{
     return { type: 'INC-MAX-VALUE',payload:{ value}}
 }
@@ -67,7 +70,7 @@ export const IncMaxValueAC = (value:number): IncMaxValueAT=>{
     export const IncValueAC = (): IncValueAT=>{
         return { type: 'INC-VALUE'}
     }
-    export const setErrorAC = (): setErrorAT=>{
+    export const SetErrorAC = (): SetErrorAT=>{
         return { type: 'SET-ERROR'}
     }
 export const ResValueAC = (): ResValueAT=>{
