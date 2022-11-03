@@ -1,5 +1,5 @@
 import {combineReducers, createStore} from "redux";
-import {valueReducer} from "./value-reducer";
+import {valueReducer} from "./valueReducer";
 
 export const rootReducer = combineReducers({
     value: valueReducer,

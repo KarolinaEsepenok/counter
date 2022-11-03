@@ -3,7 +3,7 @@ import s from "./Counter.module.css";
 import {useDispatch, useSelector} from "react-redux";
 import {ValueRootStateType} from "../state/store";
 import {useNavigate} from "react-router-dom";
-import { IncValueAC, ResValueAC, SetErrorAC, StateType} from "../state/value-reducer";
+import { IncValueAC, ResValueAC, SetErrorAC, StateType} from "../state/valueReducer";
 
 
 export const Counter = () => {

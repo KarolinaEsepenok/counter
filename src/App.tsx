@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './App.module.css'
-import {Counter} from '../src/components/Counter'
+import {Counter} from './components/Counter'
 import {NewCounter} from "./components/NewCounter";
 import {BrowserRouter, Navigate, Route, Routes,} from "react-router-dom";
 import {
@@ -8,12 +8,12 @@ import {
     IncStartValueAC, IncValueAC, ResValueAC,
     SetErrorAC,
     valueReducer
-} from "./state/value-reducer";
+} from "./state/valueReducer";
 
 
 export const App=()=> {
     return (
-        <div>
+        <div className={s.app}>
             <Counter/>
             <NewCounter/>
       </div>);

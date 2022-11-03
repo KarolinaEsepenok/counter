@@ -54,7 +54,7 @@ export const valueReducer = (state: StateType = initialValue, action: ActionType
             }else {
                 return {...state, error:false}
             }
-        };
+        }
         case 'RES-VALUE':
             return {...state, error:false, myValue:state.startValue};
         default:

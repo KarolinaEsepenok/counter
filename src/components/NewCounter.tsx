@@ -4,7 +4,7 @@ import s from "./NewCounter.module.css";
 import {Input} from "./Input";
 import {useDispatch, useSelector} from "react-redux";
 import {ValueRootStateType} from "../state/store";
-import {IncMaxValueAC, IncStartValueAC, SetErrorAC, StateType} from "../state/value-reducer";
+import {IncMaxValueAC, IncStartValueAC, SetErrorAC, StateType} from "../state/valueReducer";
 import {useNavigate} from "react-router-dom";
 
 
