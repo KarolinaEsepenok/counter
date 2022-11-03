@@ -9,10 +9,10 @@ import { IncValueAC, ResValueAC, SetErrorAC, StateType} from "../state/value-red
 export const Counter = () => {
     const value = useSelector<ValueRootStateType, StateType>(state => state.value);
     const dispatch=useDispatch()
-    const navigate = useNavigate()
-   const SetBtnHandler=()=>{
-        return navigate('/set')
-   }
+  //  const navigate = useNavigate()
+ //  const SetBtnHandler=()=>{
+ //       return navigate('/set')
+  // }
    const IncBtnHandler=()=>{
         dispatch(IncValueAC())
    }
@@ -34,9 +34,10 @@ export const Counter = () => {
             <div className={s.counter}>
                 <span className={s.number} style={errorValueColor}>{message}</span>
             </div>
+            <div>
             <button onClick={IncBtnHandler} disabled={disable} className={s.btnCounter}>INC</button>
             <button onClick={ResBtnHandler} className={s.btnCounter}>RES</button>
-            <button onClick={SetBtnHandler}  className={s.btnCounter}>SET</button>
+            <button   className={s.btnCounter}>SET</button></div>
         </div>
 )
 }

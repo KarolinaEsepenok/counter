@@ -11,16 +11,23 @@ import {
 } from "./state/value-reducer";
 
 
-export function App() {
+export const App=()=> {
     return (
-      <BrowserRouter>
-          <div className={s.app}>
-              <Routes>
-                  <Route path={'/'} element={<Navigate to={'/counter'}/>}></Route>
-                  <Route path={'/counter'} element={<Counter/>}/>
-                  <Route path={'/set'} element={<NewCounter/>}/>
-              </Routes></div>
-      </BrowserRouter>);
+        <div>
+            <Counter/>
+            <NewCounter/>
+      </div>);
 }
 
 //element={<Navigate to={'/counter'}/>}
+//(
+//         <div>
+//             <Counter/>
+//       <BrowserRouter>
+//           <div className={s.app}>
+//               <Routes>
+//                   <Route path={'/'} element={<Navigate to={'/counter'}/>}></Route>
+//                   <Route path={'/counter'} element={<Counter/>}/>
+//                   <Route path={'/set'} element={<NewCounter/>}/>
+//               </Routes></div>
+//       </BrowserRouter></div>)

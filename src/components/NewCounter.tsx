@@ -10,10 +10,10 @@ import {useNavigate} from "react-router-dom";
 
 export const NewCounter = () => {
     const value = useSelector<ValueRootStateType, StateType>((state)=> state.value)
-    const navigate = useNavigate()
-    const counterSetBtnHandler=()=>{
-        navigate('/counter')
-    }
+  //  const navigate = useNavigate()
+ //   const counterSetBtnHandler=()=>{
+ //       navigate('/counter')
+ //   }
     const dispatch = useDispatch()
     const incMaxValueBtnHandler=(number:number)=>{
         dispatch(IncMaxValueAC(number))
@@ -32,7 +32,7 @@ export const NewCounter = () => {
                <Input title={'START VALUE'} onChange={incStartValueBtnHandler} error={value.error} value={value.startValue} setError={setErrorHandler}/>
            </div>
             <div className={s.newCounterButt}>
-                <button className={s.btnCounter} onClick={counterSetBtnHandler}>SET</button>
+                <button className={s.btnCounter} >SET</button>
             </div>
         </div>
     );
