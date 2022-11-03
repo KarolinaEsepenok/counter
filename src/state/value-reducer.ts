@@ -36,13 +36,18 @@ export type ActionType = IncMaxValueAT |IncStartValueAT | IncValueAT | setErrorA
 export const valueReducer = (state: StateType = initialValue, action: ActionType):StateType => {
     switch (action.type) {
         case 'INC-MAX-VALUE': {
-            return {...state, startValue: action.valueStart};
+            return {...state, maxValue: action.payload.value};
         }
         case 'INC-START_VALUE': {
-            return {...state, maxValue: action.valueMax};
+            return {...state, startValue: action.payload.value, myValue:action.payload.value};
         }
-        case 'INC-VALUE':
-            return {...state, myValue: action.value+1};
+        case 'INC-VALUE': {
+            if (state.myValue >= state.maxValue) {
+                return {...state, error:true}
+            }else {
+                return {...state, myValue:state.myValue +1}
+            }
+        }
         case 'SET-ERROR':
             return {...state, message: action.message};
         case 'RES-VALUE':
@@ -53,17 +58,21 @@ export const valueReducer = (state: StateType = initialValue, action: ActionType
 
 }
 
-export const startButtHandlerAC = (valueStart:number): StartButtHandlerAT=>{
-    return { type: 'START-COUNTER', valueStart}
+export const IncMaxValueAC = (value:number): IncMaxValueAT=>{
+    return { type: 'INC-MAX-VALUE',payload:{ value}}
 }
-    export const maxButtHandlerAC = (valueMax:number): MaxButtHandlerAT=>{
-        return { type: 'MAX-COUNTER', valueMax}
+    export const IncStartValueAC = (value:number): IncStartValueAT=>{
+        return { type: 'INC-START_VALUE',payload:{ value}}
     }
-    export const counterAC = (value:number): CounterAT=>{
-        return { type: 'COUNT-COUNTER', value}
+    export const IncValueAC = (): IncValueAT=>{
+        return { type: 'INC-VALUE'}
     }
-    export const messageAC = (message:string): MessageAT=>{
-        return { type: 'MESSAGE', message}
+    export const setErrorAC = (): setErrorAT=>{
+        return { type: 'SET-ERROR'}
     }
+export const ResValueAC = (): ResValueAT=>{
+    return { type: 'RES-VALUE'}
+}
+
 
 

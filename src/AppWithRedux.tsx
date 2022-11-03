@@ -3,6 +3,7 @@ import s from './App.module.css'
 import Counter from "./components/Counter";
 import {NewCounter} from "./components/NewCounter";
 import {BrowserRouter, Navigate, Route,  Routes,} from "react-router-dom";
+import {IncValueAC,IncMaxValueAC,IncStartValueAC,ResValueAC,setErrorAC} from "./state/value-reducer";
 
 export function AppWithRedux() {
     return (
