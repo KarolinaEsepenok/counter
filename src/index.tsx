@@ -12,7 +12,7 @@ import {store} from "./state/store";
 );
 root.render(
   <Provider store={store}>
-    <App />
+    <App/>
   </Provider>
 );
 
