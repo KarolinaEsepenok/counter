@@ -17,7 +17,7 @@ export const Input = (props: InputProps) => {
 
     return (
       <div className={s.inputContainer}>
-          <input type={'number'} onChange={onChangeHandler} value={props.value}/>
+          <input type={'number'} onChange={onChangeHandler} value={props.value} title={props.title}/>
       </div>
 
     );
